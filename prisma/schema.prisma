@@ -27,5 +27,7 @@ model Account {
     email           String
     name            String
 
+    deltaToken  String?
+
     user User @relation(fields: [userId], references: [id])
 }
