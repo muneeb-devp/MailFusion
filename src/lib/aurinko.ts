@@ -44,7 +44,7 @@ export const exchangeCodeForAccessToken = async (code: string) => {
   }
 }
 
-export const getAccount = async (token: string) => {
+export const getAccountDetails = async (token: string) => {
   try {
     const response = await axios.get('https://api.aurinko.io/v1/account', {
       headers: {
