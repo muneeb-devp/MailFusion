@@ -1,4 +1,5 @@
 import { Account } from "@/lib/account";
+import { syncEmailsToDatabase } from "@/lib/db-sync";
 import { db } from "@/server/db";
 import { NextResponse } from "next/server";
 
@@ -36,7 +37,7 @@ export const POST = async (req: Request) => {
     }
   })
 
-  await syncEmailsToDatabase(emails);
+  await syncEmailsToDatabase(emails, accountId);
 
   console.log('Sync completed', deltaToken)
   return NextResponse.json({ success: true }, { status: 200 })
