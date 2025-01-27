@@ -1,15 +1,30 @@
+"use client";
+
+import { ThemeToggle } from "@/components/theme-toggle";
+import dynamic from "next/dynamic";
 import React from "react";
-import Mail from "./mail";
+
+const Mail = dynamic(
+  () => {
+    return import("./mail");
+  },
+  { ssr: false },
+);
 
 type Props = {};
 
 const MailDashboard = (props: Props) => {
   return (
-    <Mail
-      defaultCollapsed={false}
-      defaultLayout={[20, 32, 48]}
-      navCollapsedSize={4}
-    />
+    <>
+      <div className="absolute bottom-4 left-4">
+        <ThemeToggle />
+      </div>
+      <Mail
+        defaultCollapsed={false}
+        defaultLayout={[20, 32, 48]}
+        navCollapsedSize={4}
+      />
+    </>
   );
 };
 
