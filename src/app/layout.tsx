@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { TRPCReactProvider } from "@/trpc/react";
 
 import { ClerkProvider } from "@clerk/nextjs";
+import KBar from "@/components/kbar";
 
 export const metadata: Metadata = {
   title: "MailFusion",
@@ -27,7 +28,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ClerkProvider>
-            <TRPCReactProvider>{children}</TRPCReactProvider>
+            <TRPCReactProvider>
+              <KBar>{children}</KBar>
+            </TRPCReactProvider>
           </ClerkProvider>
         </ThemeProvider>
       </body>

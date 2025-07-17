@@ -26,6 +26,7 @@ export async function GET(req: NextRequest) {
   if (!token) return NextResponse.json({ error: 'Failed to exchange auth code' }, { status: 500 });
 
   const accountDetails = await getAccountDetails(token.accessToken);
+
   const accountId = token.accountId.toString()
 
   await db.account.upsert({
